@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Хранение и подача вина</title>
+  <link rel="shortcut icon" href="img/favicon.png" type="image/png">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/scribe.css">
+  <link rel="stylesheet" href="css/picture.css">
+  <link rel="stylesheet" href="css/listok.css">
+  <script src="js/draggabilly.pkgd.min.js"></script>
+  <script src="js/db.js"></script>
+</head>
+<body>
+<div class="ave">
+  <div class="ave__title">Введите email</div>
+  <input type="email" maxlength="40" autocomplete="off" onkeyup="checkValidate(this)" autofocus class="ave__input">
+  <div class="ave__button button" onclick="logIn()">Продолжить</div>
+</div>
+<div class="header">
+  <div class="header__menu" onclick="toggleHamburger()"></div>
+  <div class="header__title">Журналист</div>
+</div>
+<div class="main">
+  <div class="task">
+    <div class="lock hidden"></div>
+    <div class="info">
+      <div class="info__title">Помогите журналисту написать статью. Для этого заполните пробелы в предложениях.</div>
+      <div onclick="startInfo(this)" class="info__button button">Понятно!</div>
+    </div>
+    <div class="task__page scribe left">
+      <div class="scribe__title">
+        До 80-х годов 20-го века о связи формы бокала и вина были интуитивные и теоретические догадки, с
+        <input type="number" maxlength="4" autocomplete="off" class="scribe__input" style='width: calc(66px + 8 * ((100vw - 320px) / 880))'>
+        года была поставлена жирная точка.
+        Именно тогда Дж.
+        <input type="text" maxlength="6" autocomplete="off" class="scribe__input" style='width: calc(99px + 12 * ((100vw - 320px) / 880))'>
+        , стекольщик в десятом поколении, представил миру набор бокалов разных форм для разных вин. Чтобы убедить людей, он решил устраивать
+        <input type="text" maxlength="10" autocomplete="off" class="scribe__input" style='width: calc(165px + 20 * ((100vw - 320px) / 880))'>
+        , призванные продемонстрировать отличительные черты напитка в различных бокалах собственного производства.
+        <br><br>Сказать, что дегустаторы были удивлены, – ничего не сказать. Опытным путём удалось убедиться:
+        <input type="text" maxlength="5" autocomplete="off" class="scribe__input" style='width: calc(83px + 10 * ((100vw - 320px) / 880))'>
+        имеет значение.
+        Для удобства выбора оптимального
+        <input type="text" maxlength="6" autocomplete="off" class="scribe__input" style='width: calc(99px + 12 * ((100vw - 320px) / 880))'>
+        , Мадлен Паккет, создательница Wine
+        <input type="text" maxlength="5" autocomplete="off" class="scribe__input" style='width: calc(83px + 10 * ((100vw - 320px) / 880))'>
+        , придумала понятную и яркую инфографику.
+      </div>
+      <div class=" button" onclick="scoreButton(0);scribeCheck()">Нажмите для завершения!</div>
+    </div>
+  </div>
+
+  <div class="task hidden">
+    <div class="lock hidden"></div>
+    <div class="info">
+      <div class="info__title">Посмотрите внимательно на картинку. Определите, какой бокал изображён. Выберите один из вариантов ответов.</div>
+      <div onclick="startInfo(this);photoNext()" class="info__button button">Понятно!</div>
+    </div>
+    <div class="task__page picture left">
+      <div class="picture__button button hidden" onclick="scoreButton(1)">Нажмите для завершения!</div>
+    </div>
+  </div>
+
+  <div class="task hidden">
+    <div class="lock hidden"></div>
+    <div class="info" style="z-index: 2">
+      <div class="info__title">Распределите сорта в соответствии с указанными категориями. Перетащите элементы для смещения позиции.</div>
+      <div onclick="startInfo(this)" class="info__button button">Понятно!</div>
+    </div>
+    <div class="task__page listok left">
+      <div class="listok__list1">
+        <div class="listok__tab"></div>
+        <div class="listok__button button" onclick="scoreButton(2);listokCheck1()">Нажмите для завершения!</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="task hidden">
+    <div class="lock hidden"></div>
+    <div class="info">
+      <div class="info__title">Прочитайте внимательно вопрос. Дайте развёрнутый ответ в комментариях к уроку.</div>
+      <div onclick="startInfo(this)" class="info__button button">Понятно!</div>
+    </div>
+    <div class="task__page asked left">
+      <div class="asked__title"></div>
+      <div class=" button" onclick="endButton()">Дать ответ!</div>
+    </div>
+  </div>
+</div>
+<div class="footer"></div>
+<div class="menu menu__off">
+  <div class="menu__content"></div>
+</div>
+<script src="js/scribe.js"></script>
+<script src="js/picture.js"></script>
+<script src="js/listok.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
